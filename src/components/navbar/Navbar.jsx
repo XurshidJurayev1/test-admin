@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="wrapper">
-        <div>
+        <div className="flex">
           <div className="items sidebar-btn">
             <div className="item">
               <MenuIcon className="icon" onClick={()=> dispatch({ type: "SIDEBAR"})} />            

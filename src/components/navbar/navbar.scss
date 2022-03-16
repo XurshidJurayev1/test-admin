@@ -13,15 +13,34 @@
     align-items: center;
     justify-content: space-between;
 
-    
-    
-    .navbar-btn{
-      display: none;
+    @media (max-width: 990px) {
+      
+      
+    }
 
-      @media (max-width: 990px) {
-        display: block;
+    .flex{
+      display: flex;
+      justify-content: space-between;
+      align-items:center;
+      width: 100%;
+      padding: 0 15px 0 0;
+
+      .navbar-btn{
+        display: none;
+        margin: 0;
+
+        svg{
+          width: 25px;
+          height: 25px;
+        }
+  
+        @media (max-width: 990px) {
+          display: block;
+        }
       }
     }
+    
+    
     
     .search {
       display: flex;

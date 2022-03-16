@@ -48,7 +48,7 @@ const Sidebar = () => {
           <span className="logo">lamadmin</span>
         </Link>
         <div className='close-btn'>
-          <CloseIcon className="icon" onClick={()=> dispatch({ type: "CLOSE"})} />
+          <CloseIcon className="icon" onClick={()=> dispatch({ type: "CLOSE_SIDE"})} />
         </div>
       </div>
       <hr />
