@@ -59,7 +59,7 @@ const Sidebar = () => {
     <div className="sidebar" style={sidebar? active : unactive}>
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">lamadmin</span>
+          <span className="logo">AsiaPay</span>
         </Link>
         <div className='close-btn'>
           <CloseIcon className="icon" onClick={()=> dispatch({ type: "CLOSE_SIDE"})} />

@@ -21,6 +21,12 @@
     .search {
       border-color: gray;
     }
+    .nav-menu{
+      @media (max-width: 990px) {
+        border-color: #333;
+        background-color:#111;
+      }
+    }
   }
 
   .sidebar {
