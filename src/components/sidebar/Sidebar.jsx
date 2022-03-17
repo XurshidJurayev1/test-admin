@@ -18,7 +18,32 @@ import { useContext, useEffect, useState } from "react";
 
 const Sidebar = () => {
   const { dispatch, sidebar } = useContext(DarkModeContext);
-  const [width, setWidth] = useState(false)
+
+  const [width, setWidth] = useState(window.innerWidth)
+
+
+  useEffect(()=>{
+    const handleWidth = () => {
+      setWidth(window.innerWidth)
+      func()
+    }
+    window.addEventListener('resize', handleWidth)
+
+    return () => {
+      window.addEventListener('resize', handleWidth)
+      
+    }
+  }, [])
+
+
+  const func = () => {
+    if(width > 990){
+      return null
+    }else{
+      return dispatch({ type: "CLOSE_SIDE"})
+    }
+  }
+
 
   const active = {  
     transform: 'translateX(0px)',
@@ -28,18 +53,7 @@ const Sidebar = () => {
     transform: 'translateX(-200px)',
   }
 
-  const screenWwidth = () => { window.innerWidth > 990 ? setWidth(false) : setWidth(true)}
-
-  useEffect(()=>{
-    window.addEventListener('resize', screenWwidth)
-
-    return(()=>{
-      window.addEventListener('resize', screenWwidth)
-    })
-
-  }, [width])
-
-  console.log(width);
+  
 
   return (
     <div className="sidebar" style={sidebar? active : unactive}>

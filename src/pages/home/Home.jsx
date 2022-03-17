@@ -5,28 +5,38 @@ import Widget from "../../components/widget/Widget";
 import Featured from "../../components/featured/Featured";
 import Chart from "../../components/chart/Chart";
 import Table from "../../components/table/Table";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
 
 const Home = () => {
   const {sidebar} = useContext(DarkModeContext)
+  const [width, setWidth] = useState(window.innerWidth)
 
-  console.log(sidebar)
 
-  const active = {  
-    paddingLeft: '200px',
-  }
+  useEffect(()=>{
+    const handleWidth = () => {
+      setWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', handleWidth)
 
-  const unactive = {
-    paddingLeft: '0px',
-  }
+    return () => {
+      window.addEventListener('resize', handleWidth)
+    }
+  }, [])
+
+
+  console.log(sidebar)  
+  console.log(width)
+
+
+  
   
   return (
     <div className="admin" >
       <Sidebar />
-      <div className="homeContainer" style={sidebar ? active : unactive}>
+      <div className={sidebar && width > 990 ? 'homeContainer activeDesk' : 'homeContainer' } >
         <Navbar />
-        <div className="widgets">
+        {/* <div className="widgets">
           <Widget type="user" />
           <Widget type="order" />
           <Widget type="earning" />
@@ -34,12 +44,12 @@ const Home = () => {
         </div>
         <div className="charts">
           <Featured />
-          {/* <Chart title="Last 6 Months (Revenue)" aspect={2 / 1} /> */}
+          <Chart title="Last 6 Months (Revenue)" aspect={2 / 1} />
         </div>
         <div className="listContainer">
           <div className="listTitle">Latest Transactions</div>
-          {/* <Table /> */}
-        </div>
+          <Table />
+        </div> */}
       </div>
     </div>
   );

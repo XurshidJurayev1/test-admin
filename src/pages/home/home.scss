@@ -1,6 +1,13 @@
 .admin {
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
+
+  .activeDesk{
+    padding-left: 200px;
+  }
+
+  
 
   .homeContainer {
     transition: all .3s ease-in-out;

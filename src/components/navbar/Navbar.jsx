@@ -32,10 +32,11 @@ const Navbar = () => {
           <div className="items navbar-btn">
             <div className="item" onClick={()=>setNav(!nav)}> 
             <ListOutlinedIcon className="icon" />           
+            <div className="counter">2</div>
             </div>
           </div>  
         </div>
-        <div className="items nav-menu">
+        <div className="items nav-menu" style={nav ? {height: '50px'} : {height: '0px'} }>
           
           <div className="item">
             <DarkModeOutlinedIcon

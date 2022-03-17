@@ -1,9 +1,24 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useState } from "react";
 import DarkModeReducer from "./darkModeReducer";
+
+
+let width ;
+
+const screenWidth = () => {
+  const func = window.innerWidth
+  if(func > 990){
+    return width = true
+  }else{
+    return width = false
+  }
+
+}
+
+screenWidth()
 
 const INITIAL_STATE = {
   darkMode: false,
-  sidebar: true
+  sidebar: width,
 };
 
 export const DarkModeContext = createContext(INITIAL_STATE);
